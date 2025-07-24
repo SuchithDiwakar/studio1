@@ -4,7 +4,6 @@ import './globals.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
-import { CartProvider } from '@/context/cart-provider';
 import { cn } from '@/lib/utils';
 
 const ptSans = PT_Sans({
@@ -39,14 +38,12 @@ export default function RootLayout({
           spaceGrotesk.variable
         )}
       >
-        <CartProvider>
-          <div className="relative flex min-h-dvh flex-col bg-background">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
-        </CartProvider>
+        <div className="relative flex min-h-dvh flex-col bg-background">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+        <Toaster />
       </body>
     </html>
   );

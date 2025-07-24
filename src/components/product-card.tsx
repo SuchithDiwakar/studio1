@@ -1,18 +1,16 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { type Product } from '@/lib/types';
-import { useCart } from '@/context/cart-provider';
-import { ShoppingCart } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { addToCart } = useCart();
-
   return (
     <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
       <CardHeader className="p-0">
@@ -34,9 +32,11 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter className="p-4 flex items-center justify-between">
         <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
-        <Button size="sm" onClick={() => addToCart(product)}>
-          <ShoppingCart className="mr-2 h-4 w-4" />
-          Add to Cart
+        <Button asChild size="sm">
+          <Link href={`/services?product=${encodeURIComponent(product.name)}`}>
+            <Send className="mr-2 h-4 w-4" />
+            Enquire Now
+          </Link>
         </Button>
       </CardFooter>
     </Card>
