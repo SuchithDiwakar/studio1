@@ -30,8 +30,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <CardDescription className="line-clamp-3 text-sm">{product.description}</CardDescription>
         </div>
       </CardContent>
-      <CardFooter className="p-4 flex items-center justify-between">
-        <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
+      <CardFooter className="p-4 flex items-center justify-end">
         <Button asChild size="sm">
           <Link href={`/services?product=${encodeURIComponent(product.name)}`}>
             <Send className="mr-2 h-4 w-4" />
