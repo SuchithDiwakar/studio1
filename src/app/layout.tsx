@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Tech Solutions Hub',
+  title: 'Suchethan Infotech',
   description: 'Your one-stop shop for Dell, Lenovo, and HP devices and services.',
 };
 

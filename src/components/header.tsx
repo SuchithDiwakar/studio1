@@ -30,7 +30,7 @@ export function Header() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Laptop className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline sm:inline-block">
-              Tech Solutions Hub
+              Suchethan Infotech
             </span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -57,7 +57,7 @@ export function Header() {
               <SheetContent side="left">
                 <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
                   <Laptop className="h-6 w-6 text-primary" />
-                  <span className="font-bold font-headline">Tech Solutions Hub</span>
+                  <span className="font-bold font-headline">Suchethan Infotech</span>
                 </Link>
                 <nav className="flex flex-col space-y-4">
                   {navLinks.map((link) => (
@@ -75,7 +75,7 @@ export function Header() {
           </div>
           <Link href="/" className="flex items-center space-x-2 md:hidden">
               <Laptop className="h-6 w-6 text-primary" />
-              <span className="font-bold font-headline text-base">Tech Hub</span>
+              <span className="font-bold font-headline text-base">Suchethan Infotech</span>
           </Link>
           <div className="flex items-center">
             <Button asChild variant="ghost" size="icon" className="relative">
