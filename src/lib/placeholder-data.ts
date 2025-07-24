@@ -77,21 +77,6 @@ export const products: Product[] = [
     },
   },
   {
-    id: '6',
-    name: 'Dell Inspiron 2-in-1',
-    brand: 'Dell',
-    category: 'Laptops',
-    price: 0,
-    image: 'https://placehold.co/400x400.png',
-    description: 'A flexible 16-inch 2-in-1 with a large display, four different modes, and a built-in stylus for a versatile user experience.',
-    specs: {
-      processor: 'Intel Core i5/i7 or AMD Ryzen 5/7',
-      ram: '8GB/16GB DDR4',
-      storage: '512GB/1TB NVMe SSD',
-      display: '16" FHD+ (1920 x 1200) Touch Display',
-    },
-  },
-  {
     id: '7',
     name: 'HP EliteBook Core i5/i7',
     brand: 'HP',
