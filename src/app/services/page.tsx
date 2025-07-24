@@ -22,9 +22,9 @@ import {
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wrench, ShieldCheck, ArrowUpCircle, Package, Settings } from 'lucide-react';
+import { Wrench, ShieldCheck, Package, Settings } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -35,10 +35,11 @@ const formSchema = z.object({
   configuration: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
-export default function ServicesPage() {
+function ServicesPageContent() {
   const { toast } = useToast();
   const searchParams = useSearchParams();
   const productName = searchParams.get('product');
+  const configuration = searchParams.get('configuration');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,16 +48,22 @@ export default function ServicesPage() {
       email: '',
       phone: '',
       productInterest: productName || '',
-      configuration: '',
+      configuration: configuration || '',
+      service: productName ? 'product-enquiry' : '',
     },
   });
 
   useEffect(() => {
     if (productName) {
       form.setValue('productInterest', productName);
+    }
+    if (configuration) {
+        form.setValue('configuration', configuration);
+    }
+    if(productName || configuration){
       form.setValue('service', 'product-enquiry');
     }
-  }, [productName, form]);
+  }, [productName, configuration, form]);
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
@@ -204,7 +211,7 @@ export default function ServicesPage() {
                           <Textarea
                             placeholder="Please describe your desired configuration (e.g., RAM, Storage, CPU) or the issue with your device..."
                             className="resize-none"
-                            rows={5}
+                            rows={8}
                             {...field}
                           />
                         </FormControl>
@@ -221,4 +228,12 @@ export default function ServicesPage() {
       </div>
     </div>
   );
+}
+
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ServicesPageContent />
+    </Suspense>
+  )
 }

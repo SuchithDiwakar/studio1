@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   brand: 'Dell' | 'Lenovo' | 'HP' | 'Other';
   category: 'Laptops' | 'Desktops' | 'Workstations' | 'Accessories';
-  price: number;
+  price?: number;
   image: string;
   description: string;
   specs: {

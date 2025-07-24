@@ -1,5 +1,5 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import { ProductCard } from '@/components/product-card';
 import { products } from '@/lib/placeholder-data';
 import { Input } from '@/components/ui/input';
@@ -15,11 +15,10 @@ import { Label } from '@/components/ui/label';
 import { Search } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 
+const brands = Array.from(new Set(products.map(p => p.brand)));
+const categories = Array.from(new Set(products.map(p => p.category)));
 
-const brands = ['Dell', 'HP', 'Lenovo'];
-const categories = ['Laptops', 'Desktops', 'Workstations', 'Accessories'];
-
-export default function ProductsPage() {
+function ProductsPageContent() {
   const searchParams = useSearchParams();
   const initialBrand = searchParams.get('brand');
   const initialCategory = searchParams.get('category');
@@ -52,9 +51,9 @@ export default function ProductsPage() {
     return filtered.sort((a, b) => {
       switch (sortOption) {
         case 'price-asc':
-          return a.price - b.price;
+          return (a.price || 0) - (b.price || 0);
         case 'price-desc':
-          return b.price - a.price;
+          return (b.price || 0) - (a.price || 0);
         case 'name-asc':
           return a.name.localeCompare(b.name);
         case 'name-desc':
@@ -122,8 +121,6 @@ export default function ProductsPage() {
                 <SelectContent>
                   <SelectItem value="name-asc">Name (A-Z)</SelectItem>
                   <SelectItem value="name-desc">Name (Z-A)</SelectItem>
-                  <SelectItem value="price-asc">Price (Low to High)</SelectItem>
-                  <SelectItem value="price-desc">Price (High to Low)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -147,4 +144,12 @@ export default function ProductsPage() {
       </div>
     </div>
   );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsPageContent />
+    </Suspense>
+  )
 }

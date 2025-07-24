@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { type Product } from '@/lib/types';
-import { Send } from 'lucide-react';
+import { Settings } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -32,9 +32,9 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter className="p-4 flex items-center justify-end">
         <Button asChild size="sm">
-          <Link href={`/services?product=${encodeURIComponent(product.name)}`}>
-            <Send className="mr-2 h-4 w-4" />
-            Enquire Now
+          <Link href={`/products/${product.id}`}>
+            <Settings className="mr-2 h-4 w-4" />
+            Select Configuration
           </Link>
         </Button>
       </CardFooter>
