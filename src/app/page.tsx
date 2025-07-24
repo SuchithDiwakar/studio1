@@ -23,7 +23,7 @@ import { ProductCard } from '@/components/product-card';
 import Autoplay from "embla-carousel-autoplay"
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 4);
+  const featuredProducts = products.filter(p => ['1', '8', '7'].includes(p.id));
 
   return (
     <div className="flex flex-col">
@@ -103,7 +103,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="mx-auto grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mx-auto grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
