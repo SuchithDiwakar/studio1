@@ -1,9 +1,10 @@
+
 import { type Product } from './types';
 
 export const products: Product[] = [
   {
     id: '1',
-    name: 'Dell Latitude 5440 Laptop',
+    name: 'Dell Latitude Core i5/i7',
     brand: 'Dell',
     category: 'Laptops',
     image: 'https://placehold.co/400x400.png',
@@ -17,7 +18,7 @@ export const products: Product[] = [
   },
   {
     id: '2',
-    name: 'Dell Vostro 3530 Laptop',
+    name: 'Dell Vostro Core i5/i7',
     brand: 'Dell',
     category: 'Laptops',
     price: 0,
@@ -32,7 +33,7 @@ export const products: Product[] = [
   },
   {
     id: '3',
-    name: 'Dell Inspiron 15 Laptop',
+    name: 'Dell Inspiron Core i5/i7',
     brand: 'Dell',
     category: 'Laptops',
     price: 0,
@@ -47,7 +48,7 @@ export const products: Product[] = [
   },
   {
     id: '4',
-    name: 'Dell Latitude 7440 Laptop',
+    name: 'Dell Latitude Core i5/i7',
     brand: 'Dell',
     category: 'Laptops',
     price: 0,
@@ -62,7 +63,7 @@ export const products: Product[] = [
   },
     {
     id: '5',
-    name: 'Dell Vostro 5630 Laptop',
+    name: 'Dell Vostro Core i5/i7',
     brand: 'Dell',
     category: 'Laptops',
     price: 0,
@@ -77,7 +78,7 @@ export const products: Product[] = [
   },
   {
     id: '6',
-    name: 'Dell Inspiron 16 2-in-1 Laptop',
+    name: 'Dell Inspiron 2-in-1',
     brand: 'Dell',
     category: 'Laptops',
     price: 0,
@@ -92,7 +93,7 @@ export const products: Product[] = [
   },
   {
     id: '7',
-    name: 'HP EliteBook 840 G10',
+    name: 'HP EliteBook Core i5/i7',
     brand: 'HP',
     category: 'Laptops',
     price: 0,
@@ -107,7 +108,7 @@ export const products: Product[] = [
   },
   {
     id: '8',
-    name: 'Lenovo ThinkPad T14s Gen 4',
+    name: 'Lenovo ThinkPad Ryzen 7',
     brand: 'Lenovo',
     category: 'Laptops',
     price: 0,
